@@ -51,4 +51,17 @@
         app:layout_constraintLeft_toLeftOf="@+id/mailEditText"
         app:layout_constraintRight_toRightOf="@+id/mailEditText"
         app:layout_constraintTop_toBottomOf="@+id/mailEditText" />
+
+    <TextView
+        android:id="@+id/savedInfoTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="37dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Hello"
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="@+id/nameEditText"
+        app:layout_constraintRight_toRightOf="@+id/nameEditText" />
 </android.support.constraint.ConstraintLayout>
