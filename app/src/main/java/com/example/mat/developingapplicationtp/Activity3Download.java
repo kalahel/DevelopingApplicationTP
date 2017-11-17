@@ -28,17 +28,68 @@ public class Activity3Download extends AppCompatActivity {
     public static String EVENTS_FILE_PATH = "";
     public static String EVENT_EXTRA = "event";
     Button downloadButton;
-    private DatabaseHandler db;
+    //private DatabaseHandler db;
 
-    /*
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity3_download);
         downloadButton = (Button) findViewById(R.id.downloadButton);
+
+        EVENTS_FILE_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/events.txt";
+
+    }
+
+    public void downloadFile(View view) {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            } else {
+
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        PERMISSIONS_REQUEST);
+
+                // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+
+            }
+
+        } else {
+
+            // Permission already granted, Do the
+            // storage-related task you need to do.
+            if (!new File(EVENTS_FILE_PATH).exists()) {
+                downloadEvents();
+            } else {
+                Log.d(TAG,"File exist");
+                //parseEvents();
+                //printEvents();
+                //listEvents();
+            }
+        }
+
+    }
+    private void downloadEvents() {
+        Log.d(TAG, "Downloading events...");
+        Intent intent = new Intent(this, DownloadService.class);
+        intent.putExtra(REQUEST_URL, URL_PATH);
+        startService(intent);
     }
 }
-*/
+
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +97,7 @@ public class Activity3Download extends AppCompatActivity {
 
         EVENTS_FILE_PATH = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/events.txt";
 
-        db = new DatabaseHandler(this);
+        //db = new DatabaseHandler(this);
         //db.clear();
 
         // Ask for permission.
@@ -81,6 +132,7 @@ public class Activity3Download extends AppCompatActivity {
             if (!new File(EVENTS_FILE_PATH).exists()) {
                 downloadEvents();
             } else {
+                Log.d(TAG,"File exist");
                 parseEvents();
                 printEvents();
                 listEvents();
@@ -187,3 +239,4 @@ public class Activity3Download extends AppCompatActivity {
     }
 
 }
+    */
